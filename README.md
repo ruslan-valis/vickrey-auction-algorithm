@@ -2,13 +2,15 @@
 > Algorithm implementation for finding the winner and the winner price in the Vickery auction
 
 ## Problem
+
+### Statement
 Let's consider a second-price, sealed-bid auction:
 - An object for sale with a reserve price.
 - We have several potentital buyers, each one being able to place one or more bids.
 - The buyer winning the auction is the one with the highest bid above or equal to the reserve price.
 - The winning price is the highest bid price from a non-winning buyer above the reserve price (or the reserve price if none applies).
 
-## Example
+### Example
 Consider 5 potential buyers (A, B, C, D, E) with complete to acquire an object with a reserve price set at 100 euros, bidding as follows:
 
 | Buyer | Bid 1 | Bid 2 | Bid 3 |
@@ -21,5 +23,31 @@ Consider 5 potential buyers (A, B, C, D, E) with complete to acquire an object w
 
 The buyer E wins the auction at the price of 130 euros.
 
-## Goal
+### Goal
 The goal is to implement the algorithm for finding the winner and the winning price.
+
+## Development Info
+
+### Install
+Steps for the developer to setup the project initially:
+```shell
+make install
+```
+
+### Start
+Steps for the developer to start this project locally:
+```shell
+docker-compose up
+```
+
+### Lint
+Steps for the developer to run code quality tools on the project after some code changes:
+```shell
+make lint
+```
+
+### Test
+Steps for the developer to run tests locally to make sure that everything is works properly:
+```shell
+make test
+```
