@@ -9,6 +9,7 @@
         "ext-iconv": "*",
         "friendsofphp/php-cs-fixer": "^3.30",
         "phpmd/phpmd": "^2.14",
+        "phpstan/phpstan": "^1.10",
         "squizlabs/php_codesniffer": "*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
