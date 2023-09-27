@@ -8,6 +8,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "friendsofphp/php-cs-fixer": "^3.30",
+        "phpmd/phpmd": "^2.14",
         "squizlabs/php_codesniffer": "*",
         "symfony/console": "6.3.*",
         "symfony/dotenv": "6.3.*",
