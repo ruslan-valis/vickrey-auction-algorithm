@@ -16,7 +16,8 @@
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.3.*",
         "symfony/runtime": "6.3.*",
-        "symfony/yaml": "6.3.*"
+        "symfony/yaml": "6.3.*",
+        "vimeo/psalm": "^5.15"
     },
     "config": {
         "allow-plugins": {
