@@ -6,6 +6,7 @@ namespace App\Command;
 
 use App\Entity\Buyer;
 use App\Service\WinningBidService;
+use JsonException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -15,7 +16,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class WinningBidCommand extends Command
 {
-    private const NAME = "app:win-bet-test";
+    private const NAME = "app:win-bid-test";
     private const BUYERS = [
         [
             "name" => "A",
@@ -53,26 +54,34 @@ class WinningBidCommand extends Command
         $this->setDescription("Start predefined test of WinningBidService");
     }
 
+    /**
+     * @throws JsonException
+     */
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln("Start");
 
-        /**
-         * @param Buyer[] $buyers
-         */
-        $buyers = [];
-        foreach (self::BUYERS as $buyerData) {
-            $buyer = new Buyer();
-            $buyer->setName($buyerData["name"]);
-            $buyer->setBids($buyerData["bids"]);
-            $output->writeln("Buyer: " . $buyer->getName() . ", bids: " . json_encode($buyer->getBids()));
-            $buyers[] = $buyer;
-        }
-
+        $output->writeln("Initial conditions: " . json_encode(self::BUYERS, JSON_THROW_ON_ERROR | JSON_PRETTY_PRINT));
+        $buyers = $this->convertBuyers(self::BUYERS);
         $winner = $this->service->calculate($buyers, self::RESERVE);
         $output->writeln("Winner: " . $winner->getWinningBuyerName() . ", price: " . $winner->getWinningBidPrice());
 
         $output->writeln("Finish");
         return 0;
+    }
+
+    /**
+     * @return Buyer[]
+     */
+    private function convertBuyers(array $buyers): array
+    {
+        $result = [];
+        foreach ($buyers as $buyerData) {
+            $buyer = new Buyer();
+            $buyer->setName($buyerData["name"]);
+            $buyer->setBids($buyerData["bids"]);
+            $result[] = $buyer;
+        }
+        return $result;
     }
 }
