@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * Execute test of WinningBidService with predefined values
  */
-class WiningBidCommand extends Command
+class WinningBidCommand extends Command
 {
     private const NAME = "app:win-bet-test";
     private const BUYERS = [
