@@ -12,7 +12,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Execute test of WinningBidService with predefined values
+ * Execute test of WinningBidServiceTest with predefined values
  */
 class WinningBidCommand extends Command
 {
@@ -51,7 +51,7 @@ class WinningBidCommand extends Command
 
     public function configure(): void
     {
-        $this->setDescription("Start predefined test of WinningBidService");
+        $this->setDescription("Start predefined test of WinningBidServiceTest");
     }
 
     /**
